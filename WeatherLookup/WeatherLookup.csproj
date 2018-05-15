@@ -10,11 +10,13 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Browser" Version="0.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.2" />
     <DotNetCliToolReference Include="Microsoft.AspNetCore.Blazor.Cli" Version="0.3.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WeatherLookup.Data\WeatherLookup.Data.csproj" />
+    <ProjectReference Include="..\WeatherLookup.Query\WeatherLookup.Query.csproj" />
   </ItemGroup>
 
   <ItemGroup>
