@@ -34,9 +34,7 @@ namespace WeatherLookup.Query
                 throw new Exception("No contents received");
             }
 
-            Console.WriteLine(resultString);
             var jsonResponse = JArray.Parse(resultString);
-            Console.WriteLine(jsonResponse);
             return jsonResponse[0]["Key"].Value<string>();
         }
 

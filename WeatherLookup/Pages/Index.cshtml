@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject LocationSearchQuery locationSearchQuery
+@inject WeatherInfoQuery weatherInfoQuery
 
 <form class="form-signin">
     <img class="mb-4" src="https://vortex.accuweather.com/adc2010/images/slate/AccuWeather_LogoOrange.svg" alt="" width="250" height="36">
@@ -17,7 +18,10 @@
         if (!string.IsNullOrEmpty(SearchTerm))
         {
             var locationKey = await locationSearchQuery.SearchLocations(SearchTerm);
-            Console.WriteLine(locationKey);
+
+            var currentConditions = await weatherInfoQuery.GetCurrentConditions(locationKey);
+            var fiveDayForecast = await weatherInfoQuery.Get5DayForecast(locationKey);
+            Console.WriteLine(fiveDayForecast);
         }
     }
 }

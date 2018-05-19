@@ -21,6 +21,7 @@ namespace WeatherLookup
             {
                 services.AddSingleton(new ConfigurationService("KZMOg2RXf7bAN22rOrAotZ4wOqa7IA9W"));
                 services.AddTransient<LocationSearchQuery>();
+                services.AddTransient<WeatherInfoQuery>();
             });
 
             new BrowserRenderer(serviceProvider).AddComponent<App>("app");
