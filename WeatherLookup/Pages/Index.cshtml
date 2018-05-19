@@ -1,15 +1,29 @@
 ﻿@page "/"
-@inject ConfigurationService configService
+@inject LocationSearchQuery locationSearchQuery
 
 <form class="form-signin">
     <img class="mb-4" src="https://vortex.accuweather.com/adc2010/images/slate/AccuWeather_LogoOrange.svg" alt="" width="250" height="36">
     <h1 class="h3 mb-3 font-weight-normal">Enter the Weather Checker</h1>
     <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="text" class="form-control" placeholder="Enter City or ZipCode" required autofocus>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
-    @configService.ApiKey
+    <input type="text" class="form-control" placeholder="Enter City or ZipCode" bind="@SearchTerm" required autofocus />
+    <button class="btn btn-lg btn-primary btn-block" type="button" onclick="@SearchWeather">Search</button>
 </form>
 
 @functions  {
+    string SearchTerm { get; set; }
 
+    async Task SearchWeather()
+    {
+        if (!string.IsNullOrEmpty(SearchTerm))
+        {
+            if (Regex.IsMatch(SearchTerm, @"^\d\d\d\d\d$"))
+            {
+                Console.WriteLine("Search Zipcode");
+            }
+            else
+            {
+                Console.WriteLine("Search City");
+            }
+        }
+    }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Blazor.Browser.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
+using WeatherLookup.Query;
 using WeatherLookup.Services;
 
 namespace WeatherLookup
@@ -20,7 +21,7 @@ namespace WeatherLookup
             var serviceProvider = new BrowserServiceProvider(services =>
             {
                 services.AddSingleton(new ConfigurationService("KZMOg2RXf7bAN22rOrAotZ4wOqa7IA9W"));
-                // services.AddTransient<LocationSearchQuery>();
+                services.AddTransient<LocationSearchQuery>();
             });
 
             new BrowserRenderer(serviceProvider).AddComponent<App>("app");
