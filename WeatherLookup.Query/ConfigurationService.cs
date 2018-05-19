@@ -1,5 +1,5 @@
 ﻿
-namespace WeatherLookup.Services
+namespace WeatherLookup.Query
 {
     public class ConfigurationService
     {

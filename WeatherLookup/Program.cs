@@ -4,7 +4,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 using WeatherLookup.Query;
-using WeatherLookup.Services;
 
 namespace WeatherLookup
 {

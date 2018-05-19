@@ -16,14 +16,8 @@
     {
         if (!string.IsNullOrEmpty(SearchTerm))
         {
-            if (Regex.IsMatch(SearchTerm, @"^\d\d\d\d\d$"))
-            {
-                Console.WriteLine("Search Zipcode");
-            }
-            else
-            {
-                Console.WriteLine("Search City");
-            }
+            var locationKey = await locationSearchQuery.SearchLocations(SearchTerm);
+            Console.WriteLine(locationKey);
         }
     }
 }
