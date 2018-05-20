@@ -1,0 +1,18 @@
+﻿<div class="forecastListContainer">
+    @if (Days == null || Days.Count == 0)
+    {
+        <span>No Forecast</span>
+    }
+    else
+    {
+        @foreach (var day in Days)
+        {
+            <ForecastDay Day="@day" />
+        }
+    }
+</div>
+
+@functions {
+    [Parameter]
+    List<ForecastDayResult> Days { get; set; }
+}

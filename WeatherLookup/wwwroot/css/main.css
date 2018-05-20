@@ -16,35 +16,54 @@ body {
 }
 
 .form-signin {
-    width: 50%;
     padding: 15px;
-    margin: auto;
 }
 
-    .form-signin .checkbox {
-        font-weight: 400;
-    }
-
     .form-signin .form-control {
-        position: relative;
-        box-sizing: border-box;
-        height: auto;
         padding: 10px;
         font-size: 16px;
+        margin-bottom: 10px;
     }
 
-        .form-signin .form-control:focus {
-            z-index: 2;
-        }
-
-    .form-signin input[type="email"] {
-        margin-bottom: -1px;
+    .form-signin input {
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
     }
 
-    .form-signin input[type="password"] {
-        margin-bottom: 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
+/* new */
+.contentContainer {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+    .contentContainer .twoColumn {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
     }
+
+        .contentContainer .twoColumn div {
+            width: 400px;
+        }
+
+        .contentContainer .twoColumn div.conditionsContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+.forecastListContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row;
+
+    margin-top: 10px;
+    width: 100%;
+}
+
+.dayContainer {
+    display: flex;
+    margin-left: 15px;
+}

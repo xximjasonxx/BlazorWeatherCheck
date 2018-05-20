@@ -1,0 +1,15 @@
+﻿<div class="conditionsContainer">
+    @if (Conditions == null)
+    {
+        <span>No Conditions Loaded</span>
+    }
+    else
+    {
+        <span>We have conditions</span>
+    }
+</div>
+
+@functions {
+    [Parameter]
+    CurrentConditionsResult Conditions { get; set; }
+}

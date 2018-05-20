@@ -2,16 +2,28 @@
 @inject LocationSearchQuery locationSearchQuery
 @inject WeatherInfoQuery weatherInfoQuery
 
-<form class="form-signin">
-    <img class="mb-4" src="https://vortex.accuweather.com/adc2010/images/slate/AccuWeather_LogoOrange.svg" alt="" width="250" height="36">
-    <h1 class="h3 mb-3 font-weight-normal">Enter the Weather Checker</h1>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="text" class="form-control" placeholder="Enter City or ZipCode" bind="@SearchTerm" required autofocus />
-    <button class="btn btn-lg btn-primary btn-block" type="button" onclick="@SearchWeather">Search</button>
-</form>
+<div class="contentContainer">
+    <div class="twoColumn">
+        <div>
+            <form class="form-signin">
+                <img class="mb-4" src="https://vortex.accuweather.com/adc2010/images/slate/AccuWeather_LogoOrange.svg" alt="" width="250" height="36">
+                <h1 class="h3 mb-3 font-weight-normal">Enter the Weather Checker</h1>
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input type="text" class="form-control" placeholder="Enter City or ZipCode" bind="@SearchTerm" required autofocus />
+                <button class="btn btn-lg btn-primary" type="button" onclick="@SearchWeather">Search</button>
+            </form>
+        </div>
+        <CurrentWeather Conditions="@this.CurrentCondtions" />
+    </div>
+    <ForecastDayList Days="@this.ForecastDays" />
+</div>
+
+
 
 @functions  {
     string SearchTerm { get; set; }
+    CurrentConditionsResult CurrentCondtions { get; set; }
+    List<ForecastDayResult> ForecastDays { get; set; }
 
     async Task SearchWeather()
     {
@@ -19,9 +31,8 @@
         {
             var locationKey = await locationSearchQuery.SearchLocations(SearchTerm);
 
-            var currentConditions = await weatherInfoQuery.GetCurrentConditions(locationKey);
-            var fiveDayForecast = await weatherInfoQuery.Get5DayForecast(locationKey);
-            Console.WriteLine(fiveDayForecast);
+            CurrentCondtions = await weatherInfoQuery.GetCurrentConditions(locationKey);
+            ForecastDays = await weatherInfoQuery.Get5DayForecast(locationKey);
         }
     }
 }
