@@ -1,5 +1,9 @@
 ﻿<div class="dayContainer">
-    Forecast Day
+    <img src="@ProcessController.GetWeatherIconImageUrl(Day.Icon)" alt="day" width="50" height="30" />
+    <div class="tempContainer">
+        <h4>@Day.DayHighTempDisplay</h4>
+        <h4>@Day.DayLowTempDisplay</h4>
+    </div>
 </div>
 @functions {
     [Parameter]

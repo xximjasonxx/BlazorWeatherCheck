@@ -5,7 +5,14 @@
     }
     else
     {
-        <span>We have conditions</span>
+        <h3>Currently</h3>
+        <div class="currentConditionsContainer">
+            <img src="@ProcessController.GetWeatherIconImageUrl(Conditions.WeatherIcon)" alt="Weather Icon" />
+            <div><em>@Conditions.WeatherText</em></div>
+            <div>
+                <h3>@Conditions.TempValueDisplay</h3>
+            </div>
+        </div>
     }
 </div>
 

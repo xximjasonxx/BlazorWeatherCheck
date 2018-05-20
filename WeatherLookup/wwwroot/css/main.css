@@ -30,7 +30,6 @@ body {
         border-bottom-left-radius: 0;
     }
 
-/* new */
 .contentContainer {
     display: flex;
     flex-flow: column;
@@ -49,9 +48,19 @@ body {
 
         .contentContainer .twoColumn div.conditionsContainer {
             display: flex;
-            justify-content: center;
+            flex-flow: column;
             align-items: center;
+            justify-content: center;
         }
+
+            .contentContainer .twoColumn .conditionsContainer > h3 {
+                display: block;
+                text-align: left;
+                margin: 0;
+                padding: 0;
+                font-family: Arial;
+                width: 100%;
+            }
 
 .forecastListContainer {
     display: flex;
@@ -59,11 +68,47 @@ body {
     align-items: center;
     flex-flow: row;
 
-    margin-top: 10px;
+    margin-top: 20px;
     width: 100%;
 }
 
 .dayContainer {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row;
     margin-left: 15px;
+    height: 100px;
+    width: 150px;
+
+    background-color: white;
 }
+    
+    .dayContainer > .tempContainer {
+        display: flex;
+        flex-flow: column;
+    }
+
+    .tempContainer > h4 {
+        font-family: Arial;
+        font-size: 18px;
+        margin: 0;
+        padding: 0;
+    }
+
+.currentConditionsContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row;
+    padding: 20px;
+
+    background: white;
+}
+
+    .currentConditionsContainer h3 {
+        margin: 0;
+        padding: 0;
+        font-family: Arial;
+        text-align: center;
+    }
