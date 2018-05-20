@@ -37,6 +37,7 @@
     <None Include="Components\CurrentWeather.cshtml" />
     <None Include="Components\ForecastDay.cshtml" />
     <None Include="Components\ForecastDayList.cshtml" />
+    <None Include="Components\LocationDisplay.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,6 +54,14 @@
 
   <ItemGroup>
     <Content Remove="Components\ForecastDay.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BlazorGenerate Remove="Components\LocationDisplay.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Components\LocationDisplay.cshtml" />
   </ItemGroup>
 
 </Project>

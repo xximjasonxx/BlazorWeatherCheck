@@ -1,0 +1,11 @@
+﻿@if (Location != null)
+{
+    <div class="locationDisplay">
+        <h3>@Location.Name - @Location.RegionName (@Location.PostalCode)</h3>
+    </div>
+}
+
+@functions {
+    [Parameter]
+    LocationResult Location { get; set; }
+}

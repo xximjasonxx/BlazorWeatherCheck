@@ -15,6 +15,7 @@
         </div>
         <CurrentWeather Conditions="@this.CurrentCondtions" />
     </div>
+    <LocationDisplay Location="@this.Location" />
     <ForecastDayList Days="@this.ForecastDays" />
 </div>
 
@@ -22,6 +23,7 @@
 
 @functions  {
     string SearchTerm { get; set; }
+    LocationResult Location { get; set; }
     CurrentConditionsResult CurrentCondtions { get; set; }
     List<ForecastDayResult> ForecastDays { get; set; }
 
@@ -29,10 +31,10 @@
     {
         if (!string.IsNullOrEmpty(SearchTerm))
         {
-            var locationKey = await locationSearchQuery.SearchLocations(SearchTerm);
+            Location = await locationSearchQuery.SearchLocations(SearchTerm);
 
-            CurrentCondtions = await weatherInfoQuery.GetCurrentConditions(locationKey);
-            ForecastDays = await weatherInfoQuery.Get5DayForecast(locationKey);
+            CurrentCondtions = await weatherInfoQuery.GetCurrentConditions(Location.LocationKey);
+            ForecastDays = await weatherInfoQuery.Get5DayForecast(Location.LocationKey);
         }
     }
 }

@@ -68,33 +68,51 @@ body {
     align-items: center;
     flex-flow: row;
 
-    margin-top: 20px;
+    margin-top: 10px;
     width: 100%;
 }
 
 .dayContainer {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-flow: row;
+    flex-flow: column;
+    background-color: white;
     margin-left: 15px;
     height: 100px;
     width: 150px;
-
-    background-color: white;
 }
+
+    .dayContainer .dateRow {
+        display: block;
+        margin-bottom: 10px;
+    }
+        
+        .dayContainer .dateRow > h3 {
+            color: darkblue;
+            font-size: 14px;
+            font-family: Arial;
+            font-weight: bold;
+            padding: 3px;
+            margin: 0;
+        }
+
+    .dayContainer .tempRow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row;
+    }
     
-    .dayContainer > .tempContainer {
+    .tempRow .tempContainer {
         display: flex;
         flex-flow: column;
     }
 
-    .tempContainer > h4 {
-        font-family: Arial;
-        font-size: 18px;
-        margin: 0;
-        padding: 0;
-    }
+        .tempContainer > h4 {
+            font-family: Arial;
+            font-size: 18px;
+            margin: 0;
+            padding: 0;
+        }
 
 .currentConditionsContainer {
     display: flex;
@@ -112,3 +130,12 @@ body {
         font-family: Arial;
         text-align: center;
     }
+
+.locationDisplay h3 {
+    font-family: Arial;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+
+    margin-top: 10px;
+}

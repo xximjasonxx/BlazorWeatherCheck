@@ -3,6 +3,7 @@ using System;
 using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using WeatherLookup.Query.Models;
 
 namespace WeatherLookup.Query
 {
@@ -17,7 +18,7 @@ namespace WeatherLookup.Query
             this.httpClient = client;
         }
 
-        public async Task<string> SearchLocations(string searchTerm)
+        public async Task<LocationResult> SearchLocations(string searchTerm)
         {
             string resultString = string.Empty;
             if (Regex.IsMatch(searchTerm, @"^\d\d\d\d\d$"))
@@ -35,7 +36,13 @@ namespace WeatherLookup.Query
             }
 
             var jsonResponse = JArray.Parse(resultString);
-            return jsonResponse[0]["Key"].Value<string>();
+            return new LocationResult
+            {
+                LocationKey = jsonResponse[0]["Key"].Value<string>(),
+                Name = jsonResponse[0]["EnglishName"].Value<string>(),
+                RegionName = jsonResponse[0]["AdministrativeArea"]["EnglishName"].Value<string>(),
+                PostalCode = jsonResponse[0]["PrimaryPostalCode"].Value<string>()
+            };
         }
 
         async Task<string> GetKeyForPostalCode(string postalCode)
