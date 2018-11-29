@@ -7,6 +7,6 @@ phases:
       - dotnet publish --no-restore -c Release
 artifacts:
   files:
-    - dist/*
+    - dist/**/*
   discard-paths: yes
   base-directory: WeatherLookup/bin/Release/netstandard2.0/
