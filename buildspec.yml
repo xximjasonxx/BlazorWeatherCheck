@@ -8,5 +8,4 @@ phases:
 artifacts:
   files:
     - dist/**/*
-  discard-paths: yes
   base-directory: WeatherLookup/bin/Release/netstandard2.0/
