@@ -5,7 +5,6 @@ phases:
     commands:
       - dotnet restore
       - dotnet publish --no-restore -c Release
-
-  artifacts:
-    files:
-      - WeatherLookup/bin/Release/netstandard2.0/dist/**
+artifacts:
+  files:
+    - WeatherLookup/bin/Release/netstandard2.0/dist/**
