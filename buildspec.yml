@@ -9,4 +9,4 @@ phases:
     commands:
       - mv ./WeatherLookup/bin/Release/netstandard2.0/dist ./artifact
     finally:
-      - aws s3 cp ./artifact/**/* to s3://blazor-weather-check
+      - aws s3 cp ./artifact to s3://blazor-weather-check --recursive
